@@ -1,0 +1,112 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Have Read</title>
+
+<style>
+	@charset "ISO-8859-1";
+	
+	body {
+		color: midnightBlue;
+		background-color: mistyRose;
+	}
+	
+	h1 {
+		text-align: center;
+		font-size: 75px;
+	}
+	
+	#container {
+		display:flex;
+		justify-content: center;
+		align-items: center;
+		padding: 10px;
+	}
+	
+	#row1, #row2, #row3 {
+		font-size: 30px;
+		padding: 30px;
+	}
+	
+	p {
+		padding: 10px;
+		border: 4px solid midnightBlue;
+		text-align: center;
+		margin: 20px;
+	}
+	
+	a:link, a:visited {
+		color: darkGrey;
+	}
+	
+	a:hover {
+		background-color: white;
+	}
+	
+	table {
+		margin: 20px 20px 100px 20px;	
+	}
+	
+	form {
+		margin-bottom: 100px;	
+	}
+	
+	td {
+		border: 1px solid gray;
+		padding: 10px;
+		text-align: center;
+	}
+	
+	footer {
+		display: flex;
+		background-color: midnightBlue
+	}
+	
+	footer a {
+		margin: 20px 50px 20px 50px;
+	}
+	
+	th {
+		border: 2px solid gray;
+	}
+</style>
+
+<!-- Validate input, preventing empty input or ratings <1 or >10 -->
+<script type="text/javascript">
+	function checkInput() {
+		
+		if (document.newBook.title.value == "") {
+			alert("No title given, please add a title.")
+			document.newBook.title.focus();
+			return false;
+		}
+		
+		if (document.newBook.author.value == "") {
+			alert("No author given, please add an author.")
+			document.newBook.author.focus();
+			return false;
+		}
+		
+		if (document.newBook.excitementRating.value == "" || isNaN(document.newBook.excitementRating.value)
+				|| document.newBook.excitementRating.value < 1 || document.newBook.excitementRating.value > 10) {
+			alert("Invalid rating, please add a rating between 1-10.")
+			document.newBook.excitementRating.focus();
+			return false;
+		}
+		return (true)
+	}
+</script>
+</head>
+<body>
+	<h1>Add a Book to Have Read List</h1>
+	<form th:object="${newBookHaveRead}" th:action="@{/inputHaveRead}" name= "newBook" method=POST onsubmit="return(checkInput())">
+		Title: <input type ="text" name="title">
+		Author: <input type ="text" name="author">
+		Rating of Book: <input type ="number" name="excitementRating">
+		<input type ="submit" value="Add Book">
+	</form>
+	
+	<a style="border: 2px solid midnightBlue; padding: 10px" href="../index.html">Back to home</a>
+</body>
+</html>

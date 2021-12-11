@@ -1,0 +1,64 @@
+@charset "ISO-8859-1";
+
+body {
+	color: midnightBlue;
+	background-color: mistyRose;
+}
+
+h1 {
+	text-align: center;
+	font-size: 75px;
+}
+
+#container {
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+}
+
+#row1, #row2, #row3 {
+	font-size: 30px;
+	padding: 30px;
+}
+
+p {
+	padding: 10px;
+	border: 4px solid midnightBlue;
+	text-align: center;
+	margin: 20px;
+}
+
+a:link, a:visited {
+	color: darkGrey;
+}
+
+a:hover {
+	background-color: white;
+}
+
+table {
+	margin: 20px 20px 100px 20px;	
+}
+
+form {
+	margin-bottom: 100px;	
+}
+
+td {
+	border: 1px solid gray;
+	padding: 10px;
+}
+
+footer {
+	display: flex;
+	background-color: midnightBlue
+}
+
+footer a {
+	margin: 20px 50px 20px 50px;
+}
+
+th {
+	border: 2px solid gray;
+}
